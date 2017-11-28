@@ -22,7 +22,7 @@ namespace Contest_2017
     /// </summary>
     public partial class MainWindow : Window
     {
-        Log _logger = new Logger.Log ( );
+        Log _logger { get; } = new Logger.Log ( );
         Func functional = new Func ( );
 
         public MainWindow()
@@ -32,6 +32,7 @@ namespace Contest_2017
             _logger.CreateLogFile ( ); 
             _logger.CreateLog ( loggerDataGrid );
         }
+
 
         private void usersCount_DataContextChanged( object sender, DependencyPropertyChangedEventArgs e )
         {
@@ -59,7 +60,7 @@ namespace Contest_2017
 
         private void calculateButton_Click( object sender, RoutedEventArgs e )
         {
-            functional.Calculate ( costsDataGrid, expensesDataGrid, transactionDataGrid );
+            functional.Calculate ( costsDataGrid, expensesDataGrid, transactionDataGrid, loggerDataGrid );
         }
     }
 }
